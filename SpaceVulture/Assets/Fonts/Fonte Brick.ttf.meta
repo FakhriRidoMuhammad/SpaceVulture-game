@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: aab8398aaae15ec49b074c4f2382857e
+timeCreated: 1501743794
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bricks Constructions
+  fontNames:
+  - Bricks Constructions
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
