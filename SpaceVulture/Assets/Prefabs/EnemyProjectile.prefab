@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  laserAudio: {fileID: 8300000, guid: d92d037caf15f6844ada1824a4d771c3, type: 3}
 --- !u!212 &212660332080269916
 SpriteRenderer:
   m_ObjectHideFlags: 1

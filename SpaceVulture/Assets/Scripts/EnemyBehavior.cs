@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehavior : MonoBehaviour {
 
     public float health = 150;
     public GameObject enemyProjectile;
     public float ProjectileOffset = -1;
-
+    public int scoreValue = 150;
+    public AudioClip EnemyDestroyedSfx;
+   
     private float projectileSpeed = 10;
     private float rdm;
+    private ScoreKeeper scoreKeeper;
+
+    private void Start()
+    {
+        scoreKeeper = GameObject.Find("ScoreText").GetComponent<ScoreKeeper>();
+    }
 
     private void OnTriggerEnter2D(Collider2D ObjCollidingWith)
     {
@@ -21,13 +30,16 @@ public class EnemyBehavior : MonoBehaviour {
             playerBeam.Hit();
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(EnemyDestroyedSfx, transform.position);
                 Destroy(gameObject);
+                scoreKeeper.Score(scoreValue);
             }
         }
         if (playerShip)
         {
             Destroy(ObjCollidingWith.gameObject);
             Destroy(gameObject);
+            SceneManager.LoadScene("Final");
         }
     }
 

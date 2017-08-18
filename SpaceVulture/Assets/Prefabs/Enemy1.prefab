@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60947396152936364}
   - component: {fileID: 50387887466038270}
   - component: {fileID: 114422115122626030}
+  - component: {fileID: 95424589924717420}
   m_Layer: 8
   m_Name: Enemy1
   m_TagString: Untagged
@@ -106,6 +107,23 @@ PolygonCollider2D:
       - {x: -0.22709656, y: -0.4135666}
       - {x: -0.15271378, y: -0.38586187}
       - {x: -0.10951519, y: -0.3624773}
+--- !u!95 &95424589924717420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094578349102222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e605844912073f348a8e2364eff38c2d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114422115122626030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +139,8 @@ MonoBehaviour:
   enemyProjectile: {fileID: 1912657340520664, guid: 7aad50f303962974999058b5cac32a10,
     type: 2}
   ProjectileOffset: -0.8
+  scoreValue: 150
+  EnemyDestroyedSfx: {fileID: 8300000, guid: c48ded951b031bf4ebd610b0b910fd01, type: 3}
 --- !u!212 &212948816469641170
 SpriteRenderer:
   m_ObjectHideFlags: 1

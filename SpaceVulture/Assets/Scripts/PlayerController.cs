@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public AudioClip PlayerDestroyedSfx;
     public GameObject projectile;
     public float Padding = 1f;
     public float moveSensitivity = 5f;
@@ -42,9 +44,10 @@ public class PlayerController : MonoBehaviour {
             health -= enemyProjectile.Damage();
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(PlayerDestroyedSfx, transform.position);
+                SceneManager.LoadScene("Final");
                 Destroy(gameObject);
             }
-            Debug.Log("Your health: " + health);
         }
     }
 

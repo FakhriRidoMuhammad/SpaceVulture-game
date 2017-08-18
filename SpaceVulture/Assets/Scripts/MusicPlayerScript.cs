@@ -1,23 +1,69 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicPlayerScript : MonoBehaviour {
+
     static MusicPlayerScript instance = null;
-	// Use this for initialization
-	void Awake () {
-        if (instance != null)
+
+    public AudioClip startClip;
+    public AudioClip gameClip;
+    public AudioClip endClip;
+    private AudioSource musicSource;
+
+	void Start () {
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         } else
         {
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
+            musicSource = GetComponent<AudioSource>();
+            musicSource.clip = startClip;
+            musicSource.loop = true;
+            musicSource.Play();
         }
+        SceneManager.activeSceneChanged += OnSceneLoaded;
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene oldScene, Scene newScene)
+    {
+        Debug.Log("Oldscene: " + oldScene.name);
+        Debug.Log("NewScene: " + newScene.name);
+        //
+        // gets the curent scene
+        //
+        Scene thisScene = SceneManager.GetActiveScene();
+        //
+        //gets the build index number of the screen
+        //
+        int level = thisScene.buildIndex;
+
+        musicSource.Stop();
+        if (level == 0)
+        {
+            musicSource.clip = startClip;
+        }
+        if (level == 1)
+        {
+            musicSource.clip = gameClip;
+        }
+        if (level == 2)
+        {
+            musicSource.clip = endClip;
+        }
+        musicSource.loop = true;
+        musicSource.Play();
+
+    }
+
 }

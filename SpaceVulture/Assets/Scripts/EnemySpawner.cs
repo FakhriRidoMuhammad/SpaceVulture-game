@@ -6,7 +6,8 @@ public class EnemySpawner : MonoBehaviour {
 
     public GameObject enemyPrefab;
     public float movementSpeed = 5;
-    public float spawnDelay = 0.5f;
+    public float spawnDelay = 0.2f;
+    public AudioClip zap;
 
     private float xMin, xMax, yMin, yMax;
     private float width = 12f;
@@ -32,6 +33,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             GameObject enemy = Instantiate(enemyPrefab, nextPosition.position, Quaternion.identity);
             enemy.transform.parent = nextPosition;
+            AudioSource.PlayClipAtPoint(zap, nextPosition.position);
         }
 
         if (NextFreePosition())
@@ -49,7 +51,6 @@ public class EnemySpawner : MonoBehaviour {
         FormationMovement();
         if (AllEnemiesDead())
         {
-            Debug.Log("All enemy dead!");
             SpawnUntilFull();        }
 	}
 
