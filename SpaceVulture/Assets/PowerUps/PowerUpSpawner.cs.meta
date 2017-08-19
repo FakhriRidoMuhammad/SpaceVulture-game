@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a1861226c4b0a6c42a43709a0dc803cc
+timeCreated: 1503143271
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - HealthPowerUpPrefab: {fileID: 1743259655964670, guid: ce1cd691a971d10449c9421ba2247cc0,
+      type: 2}
+  - SpeedPowerUpPrefab: {fileID: 1119825963611856, guid: 8d2e76efdaabfcd48841951b477afe72,
+      type: 2}
+  - FirePowerUpPrefab: {fileID: 1173811431358578, guid: 1e71e2722ff7a64439f944197d6c94de,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
